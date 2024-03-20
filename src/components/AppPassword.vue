@@ -9,7 +9,7 @@ export default {
   methods: {
     save() {
       localStorage.setItem("password", this.password);
-      this.$emit("password-entered");
+      this.$emit("password");
     }
   }
 }
@@ -25,6 +25,7 @@ export default {
         <v-text-field
           v-model="password"
           label="Password"
+          @keydown.enter="save"
           required
         ></v-text-field>
         <v-card-actions>
